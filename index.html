@@ -154,6 +154,16 @@ $(document).ready(function(){
 </a>
 <script>
     window.botpressWebChat.init({ host: 'http://45.79.178.45:3000', botId: 'electionbot' })
+	    window.addEventListener('message', function(event) {
+      if (event.data.name === 'webchatReady') {
+        window.botpressWebChat.sendEvent({
+          type: 'proactive-trigger',
+          channel: 'web',
+          payload: { text: 'fake message' }
+        })
+      }
+    })
+	
   </script>
 </div>
 </div>
